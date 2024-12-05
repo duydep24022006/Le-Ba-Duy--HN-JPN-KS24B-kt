@@ -5,7 +5,7 @@ int main(){
 	int n,d,currentLength;
 	
 do{
-	printf("\n		----MENU----\n");  
+	printf("\n	 	----MENU----\n");  
 	printf("1.Nhap so phan tu va gia tri cho mang \n"); 
 	printf("2.In ra gia tri cac phan tu trong mang theo dang \n"); 
 	printf("3.Dem so luong cac so hoan hao co trong mang \n"); 
