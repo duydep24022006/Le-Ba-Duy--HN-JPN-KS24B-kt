@@ -53,21 +53,24 @@ do{
 			}
 			break;
 		case 4:
-			min_arr=arr[0];
-			min_number=arr[0];
-				for(int i=0;i<currentLength;i++){
-					if(arr[min_arr]>arr[i]){
-						min_arr=arr[i]; 
-					}
-				}
-				for(int i=0;i<currentLength;i++){
-					if(arr[min_number]>arr[i]){
-						if(arr[i]!=min_arr){
-						min_number=arr[i];
-						}
-					}
-				}
-				printf("phan tu nho thu 2 cua mang la %d",min_number);
+			if (currentLength < 2) {
+				printf("Khong du du lieu de tim gia tri nho thu 2.\n");
+			    } else {
+			        int min = arr[0], second_min = __INT_MAX__;
+			        for (int i = 1; i < currentLength; i++) {
+			            if (arr[i] < min) {
+			                second_min = min;
+			                min = arr[i];
+			            } else if (arr[i] < second_min && arr[i] != min) {
+			                second_min  = arr[i];
+			            }
+			        }
+			        if (second_min  == __INT_MAX__) {
+			            printf("Khong co gia tri nho thu 2 hop le.\n");
+			        } else {
+			            printf("Phan tu nho thu 2 la: %d\n", second_min );
+			        }
+			    }
 			break;
 		case 5:
 			if(currentLength<=0){
@@ -164,35 +167,29 @@ do{
 			}
 			break;
 		case 9:
-			int Le; 
-			if(currentLength<=0){
-					printf("moi ban nhap giai tri can vao mang");
-					break;
-			}else {
-				printf("dau la mang sau khi sap xep theo thu tu tang dan ");
-				for(int i=0;i<n-1;i++){
-					for(int j=i+1;j<n;j++){
-						if(arr[i]>arr[j] && arr[j]%2!=0){
-							int temp=arr[i];
-							arr[i]=arr[j];
-							arr[j]=temp;
-							Le=j; 
-						}
-					}
-				}
-				for(int i=Le;i<n-1;i++){
-					for(int j=i+1;j<n;j++){
-						if(arr[i]>arr[j] && arr[j]%2==0){
-							int temp=arr[i];
-							arr[i]=arr[j];
-							arr[j]=temp;
-						}
-					}
-				}
-				for(int i=0;i<currentLength;i++){
-					printf("%d\t",arr[i]);
-				}
+			int tempArr[100];
+			 int oddCount = 0, evenCount = 0;
+			for (int i = 0; i < currentLength; i++) {
+				 if (arr[i] % 2 != 0) {
+			                tempArr[oddCount++] = arr[i];
+			            }
 			}
+			for (int i = 0; i < currentLength; i++) {
+			        if (arr[i] % 2 == 0) {
+			        	tempArr[oddCount + evenCount++] = arr[i];
+			            }
+			}
+			
+			for (int i = 0; i < currentLength; i++) {
+			        arr[i] = tempArr[i];
+			}
+			
+			printf("Mang sau khi sap xep: ");
+			 for (int i = 0; i < currentLength; i++) {
+			        printf("%d ", arr[i]);
+			 }
+			printf("\n");
+			    }
 			break;
 		case 11:printf("CHUC MUNG BAN DA THOAT KHOI MENU");
 			return 0;
