@@ -54,7 +54,7 @@ do{
 			break;
 		case 4:
 			if (currentLength < 2) {
-				printf("Khong du du lieu de tim gia tri nho thu 2.\n");
+				 printf("Khong du du lieu de tim gia tri nho thu 2.\n");
 			    } else {
 			        int min = arr[0], second_min = __INT_MAX__;
 			        for (int i = 1; i < currentLength; i++) {
