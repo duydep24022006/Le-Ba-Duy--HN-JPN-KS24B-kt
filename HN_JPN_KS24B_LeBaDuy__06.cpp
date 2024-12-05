@@ -148,49 +148,54 @@ do{
 			}
 			break;
 		case 8:
-			if(currentLength<=0){
-					printf("moi ban nhap giai tri can vao mang");
-					break;
-			}else {
-				int ViTri,t;
-				printf("moi ban nhap vao gia tri can tim kiem");
-				scanf("%d",&t);
-				for(int i=0;i<currentLength;i++){
-					if(t==arr[i]){
-						printf("gia tri ban can tim nam o vi tri arr[%d]",i);
-						ViTri=1;
-					}
-				}
-				if(ViTri!=1){
-					printf("gia tri ban can tim khong co trong mang");
-				}
-			}
+			 if (currentLength <= 0) {
+		        printf("Moi ban nhap gia tri vao mang\n");
+		        break;
+		    } else {
+		        int tempArr[100];
+		        int oddCount = 0, evenCount = 0;
+		 
+		        for (int i = 0; i < currentLength; i++) {
+		            if (arr[i] % 2 != 0) {
+		                tempArr[oddCount++] = arr[i];
+		            }
+		        }
+		        for (int i = 0; i < currentLength; i++) {
+		            if (arr[i] % 2 == 0) {
+		                tempArr[oddCount + evenCount++] = arr[i];
+		            }
+		        }
+		
+		        for (int i = 0; i < currentLength; i++) {
+		            arr[i] = tempArr[i];
+		        }
+		
+		        printf("Mang sau khi sap xep: ");
+		        for (int i = 0; i < currentLength; i++) {
+		            printf("%d ", arr[i]);
+		        }
+		        printf("\n");
+		    }
 			break;
 		case 9:
-			int tempArr[100];
-			 int oddCount = 0, evenCount = 0;
-			for (int i = 0; i < currentLength; i++) {
-				 if (arr[i] % 2 != 0) {
-			                tempArr[oddCount++] = arr[i];
-			            }
-			}
-			for (int i = 0; i < currentLength; i++) {
-			        if (arr[i] % 2 == 0) {
-			        	tempArr[oddCount + evenCount++] = arr[i];
-			            }
-			}
-			
-			for (int i = 0; i < currentLength; i++) {
-			        arr[i] = tempArr[i];
-			}
-			
-			printf("Mang sau khi sap xep: ");
-			 for (int i = 0; i < currentLength; i++) {
-			        printf("%d ", arr[i]);
-			 }
-			printf("\n");
-			    }
-			break;
+			if (currentLength <= 0) {
+		        printf("Moi ban nhap gia tri vao mang\n");
+		        break;
+		    } else {
+		        int isIncreasing = 1;
+		        for (int i = 0; i < currentLength - 1; i++) {
+		            if (arr[i] > arr[i + 1]) {
+		                isIncreasing = 0;
+		                break;
+		            }
+		        }
+		        if (isIncreasing) {
+		            printf("Mang la mang tang dan.\n");
+		        } else {
+		            printf("Mang khong phai la mang tang dan.\n");
+		        }
+		    }
+		    break;
 		case 11:printf("CHUC MUNG BAN DA THOAT KHOI MENU");
 			return 0;
 		default:
